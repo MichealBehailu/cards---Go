@@ -6,7 +6,7 @@ func main() {
 
 	// fmt.Println(cards)
 
-	cards.print()
+	cards.print() //cards is passed as d in the deck.go //as a copy in short
 
 }
 
