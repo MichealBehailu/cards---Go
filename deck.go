@@ -8,13 +8,13 @@ import "fmt"
 type deck []string
 
 func newDeck() deck { //return a value of deck
-	cards := deck{}
+	cards := deck{} //this means cards is the type of deck 
 
 	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Clubs"} //these are the variants
 	cardValues := []string{"Ace", "Two", "Three", "Four"}          //these are the values from ace to king
 
-	for _, suit := range cardSuits {
-		for _, value := range cardValues {
+	for _, suit := range cardSuits { //the idea of this loop is to add both the cardSuits and also the cardValues to cards
+		for _, value := range cardValues { //the _ is the replace for variable that we dont use
 			cards = append(cards, value+" of "+suit)
 		}
 	}
