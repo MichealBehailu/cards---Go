@@ -7,7 +7,7 @@ import "fmt"
 
 type deck []string
 
-func (d deck) print() {
+func (d deck) print() { //any variable of type 'deck' now gets access to the "print" method
 	for i, card:= range d {
 		fmt.Println(i, card)
 	}
