@@ -1,12 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	// var card string = "Ace of Spades" //one way to define
+	cards := []string{"Ace of Diammonds", newCard()} //inside the brace we can put elements to it
+	cards = append(cards, "Six of Spades")                      //to add additional elements to it //it returns new slice so we can store it on the variable and it does not destroy the old one
 
-	card := newCard()
-	fmt.Println(card)
+	// fmt.Println(cards)
+
+	//to iterate over the slice
+	for i, card := range cards { //range keyword is used to iterate over every element in the slice
+		fmt.Println(i, card)
+	}
+	
 }
 
 func newCard() string {
