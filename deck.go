@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import ("fmt"
+		"strings"
+)
 
 //create a new type of 'deck'
 //which is a slice of strings
@@ -30,4 +32,8 @@ func (d deck) print() { //any variable of type 'deck' now gets access to the "pr
 
 func deal(d deck, handSize int) (deck, deck){ //the (deck, deck) means go expect two things to be returned
 	return d[:handSize] , d[handSize:] //for the first return value (d[:handSize]) it means from starting(0) to the handover //the second return value (d[handSize:]) is from handsize to the end 
+}
+
+func (d deck) toString() string{
+	return strings.Join([]string(d), ",")
 }
