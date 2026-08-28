@@ -1,9 +1,6 @@
 package main
 
-import "fmt"
-
 func main() {
 	cards := newDeck() //create a new deck
-
-	fmt.Println(cards.toString()) //convert the cards deck to slice of strings by calling the toString then display it
+	cards.saveToFile("my_cards") //we trying to save the card deck into a filename called my_cards
 }

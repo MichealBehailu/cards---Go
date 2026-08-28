@@ -1,7 +1,9 @@
 package main
 
-import ("fmt"
-		"strings"
+import (
+	"fmt"
+	"os"
+	"strings"
 )
 
 //create a new type of 'deck'
@@ -10,7 +12,7 @@ import ("fmt"
 type deck []string
 
 func newDeck() deck { //return a value of deck
-	cards := deck{} //this means cards is the type of deck 
+	cards := deck{} //this means cards is the type of deck
 
 	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Clubs"} //these are the variants
 	cardValues := []string{"Ace", "Two", "Three", "Four"}          //these are the values from ace to king
@@ -30,10 +32,14 @@ func (d deck) print() { //any variable of type 'deck' now gets access to the "pr
 	}
 }
 
-func deal(d deck, handSize int) (deck, deck){ //the (deck, deck) means go expect two things to be returned
-	return d[:handSize] , d[handSize:] //for the first return value (d[:handSize]) it means from starting(0) to the handover //the second return value (d[handSize:]) is from handsize to the end 
+func deal(d deck, handSize int) (deck, deck) { //the (deck, deck) means go expect two things to be returned
+	return d[:handSize], d[handSize:] //for the first return value (d[:handSize]) it means from starting(0) to the handover //the second return value (d[handSize:]) is from handsize to the end
 }
 
-func (d deck) toString() string{
-	return strings.Join([]string(d), ",") //the []string(d) - this will convert the deck to slice of strings //and Join is used to join the slice of strings //and the "," - is the separator //refer package on go documentation(pkg)
+func (d deck) toString() string {
+	return strings.Join([]string(d), ",") //the []string(d) - this will convert the deck to slice of strings (or in one string) //and Join is used to join the slice of strings //and the "," - is the separator //refer package on go documentation(pkg)
+}
+
+func (d deck) saveToFile(filename string) error { //it takes a filename and also a reciver deck
+	return os.WriteFile(filename, []byte(d.toString()), 0666) // 0666 - means anyone can read and write this file, it is like permission
 }
