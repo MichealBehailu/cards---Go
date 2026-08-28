@@ -1,10 +1,15 @@
 package main
 
+import "fmt"
+
 func main() {
-	cards := newDeck()
+	// cards := newDeck()
 
-	hand, remaningCards := deal(cards, 5) //two separate variable needed two store the two returned value
+	// hand, remaningCards := deal(cards, 5) //two separate variable needed two store the two returned value
 
-	hand.print() //we can call the print function because the two varaibles are type of deck
-	remaningCards.print()
+	// hand.print() //we can call the print function because the two varaibles are type of deck
+	// remaningCards.print()
+
+	greeting := "Hi there!"
+	fmt.Println([]byte(greeting))
 }
