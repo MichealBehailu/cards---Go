@@ -2,6 +2,9 @@ package main
 
 func main() {
 	cards := newDeck()
-	cards.print() //cards is passed as d in the deck.go //as a copy in short
 
+	hand, remaningCards := deal(cards, 5) //two separate variable needed two store the two returned value
+
+	hand.print() //we can call the print function because the two varaibles are type of deck
+	remaningCards.print()
 }
