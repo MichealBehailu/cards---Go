@@ -35,5 +35,5 @@ func deal(d deck, handSize int) (deck, deck){ //the (deck, deck) means go expect
 }
 
 func (d deck) toString() string{
-	return strings.Join([]string(d), ",")
+	return strings.Join([]string(d), ",") //the []string(d) - this will convert the deck to slice of strings //and Join is used to join the slice of strings //and the "," - is the separator //refer package on go documentation(pkg)
 }
