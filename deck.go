@@ -5,6 +5,7 @@ import (
 	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 //create a new type of 'deck'
@@ -53,15 +54,18 @@ func newDeckFromFile(filename string) deck {
 		os.Exit(1) //if 0 is passed indicates success //but non zero means an error occured and the program terminates immediately
 	}
 
-	s := strings.Split(string(bs), ",") 
+	s := strings.Split(string(bs), ",")
 	return deck(s)
 
 }
 
 func (d deck) shuffle() {
+	source := rand.NewSource(time.Now().UnixNano()) //our seed value //to generate int64 numbers everytime and use it as a seed
+	r := rand.New(source)                           //using source as a base for a random number genreator
+
 	for i := range d {
-		newPosition := rand.Intn(len(d) - 1) //intn - is used to generate random number 
-		
+		newPosition := r.Intn(len(d) - 1) //intn - is used to generate random number
+
 		d[i], d[newPosition] = d[newPosition], d[i] //swap
 	}
 }
