@@ -43,3 +43,16 @@ func (d deck) toString() string {
 func (d deck) saveToFile(filename string) error { //it takes a filename and also a reciver deck
 	return os.WriteFile(filename, []byte(d.toString()), 0666) // 0666 - means anyone can read and write this file, it is like permission
 }
+
+func newDeckFromFile(filename string) deck {
+	bs, err := os.ReadFile(filename) //bs inthis case it is byteslice
+
+	if err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(1) //if 0 is passed indicates success //but non zero means an error occured and the program terminates immediately
+	}
+
+	s := strings.Split(string(bs), ",") 
+	return deck(s)
+
+}
